@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/connor/School/VSCode/CS1410/w2-a.py/helloWorld'
+relocations:     []
+...
