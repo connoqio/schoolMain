@@ -5,15 +5,13 @@ using namespace std;
 
 
 int main(){
-    int num1;
-    int num2;
+    double tempf;
+    cout << "what temperature do you want to convert to celsius?" << endl;
+    cin >> tempf;
+    double tempc = (tempf -32) * 5/9;
 
-    cout << "-this is a calculator-" << endl;
-    cout << "what do you want to do?" << endl;
-    cin >> num1;
-    cout << "another one please" << endl;
-    cin >> num2;
+    cout << tempc;
 
-    cout << num1 + num2;
+    return 0;
 
-}
+};
