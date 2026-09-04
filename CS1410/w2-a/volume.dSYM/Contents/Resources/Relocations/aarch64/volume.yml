@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/connor/SCHOOL/schoolMain/CS1410/w2-a/volume'
+relocations:     []
+...
