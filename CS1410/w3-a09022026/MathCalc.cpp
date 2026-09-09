@@ -7,8 +7,6 @@ and the program prints the output*/
 #include <cmath>
 using namespace std;
 
-
-#if 0
 int main(){
     double x, y;
     double result = 999999;
@@ -29,29 +27,31 @@ int main(){
     cin >> userChoice; //gets the opperand for the calculator
 
     //this if else statement takes the input the user gave and the executes the code accordingly
-    if ((userChoice == 'a') || (userChoice == 'A') || (userChoice == '+')){
+    switch(userChoice){
+    case 'a':
+    case 'A':
+    case '+':
         result = x + y;
+        break;
+    case 's':
+    case 'S':
+    case '-':
+            result = x - y;
+        break;
+    case 'm':
+    case 'M':
+    case '*':
+            result = x * y;
+        break;
+    case 'd':
+    case 'D':
+    case '/':
+            result = x / y;
+        break;
+    default:
+        cout << "Not a valid choice." << endl;
     }
-
-    else if ((userChoice == 's') || (userChoice == 'S') || (userChoice == '-')){
-        result = x - y;
-    }
-
-    else if ((userChoice == 'm') || (userChoice == 'M') || (userChoice == '*')){
-        result = x * y;
-    }
-
-    else if ((userChoice == 'd') || (userChoice == 'D') || (userChoice == '/')){
-        result = x / y;
-    }
-
-    else{     //default
-        cout << "Not a valid choice. " << endl;
-    }
-
     cout << "The result is: " << result << endl;
-
+    
     return 0;
 }
-
-#endif
