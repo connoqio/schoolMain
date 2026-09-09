@@ -1,5 +1,5 @@
 """
-Connor made this program after he popped a tired going to school
+Connor made this program after he popped a tire going to school
 it is currently 9:23am on 9/3/2026
 this program took about 15 minutes to figure out and write
 """
