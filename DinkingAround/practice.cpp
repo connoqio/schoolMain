@@ -1,23 +1,24 @@
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
-   int userValue;
-   int minNumber;
+   // a1 b1 c1 d1 
+   // A1 B2 C3 D4
 
-   cin >> userValue;
+   int i = 1;
 
-   minNumber = userValue;
-
-   while (userValue > 0) {
-      if (userValue < minNumber) {
-         minNumber = userValue;
-      }
-      cin >> userValue;
+   for (char c = 'A'; c < 'H'; c += 2, i += 2){
+      cout << c << i << " ";
    }
 
-   cout << "Min value: " << minNumber;
+cout << endl << endl;
+
+   for (int i = 2; i <= 2000; i *= 10){
+      cout << i << ' ';
+      }
+   
 
    return 0;
 }
