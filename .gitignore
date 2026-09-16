@@ -1,0 +1,15 @@
+# Windows build artifacts
+*.exe
+*.obj
+*.ilk
+*.pdb
+*.idb
+vc*.pdb
+
+# macOS build artifacts & system files
+*.out
+*.dSYM/
+.DS_Store
+
+# VS Code settings (optional, uncomment if you don't want to sync editor configs)
+# .vscode/
