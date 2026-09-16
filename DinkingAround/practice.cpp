@@ -1,28 +1,23 @@
+
 #include <iostream>
 using namespace std;
 
-// Output GCD of user-input numA and numB
-
 int main() {
-   int numA;  // User input
-   int numB;  // User input
-   
-   cout << "Enter first positive integer: ";
-   cin  >> numA;
-   
-   cout << "Enter second positive integer: ";
-   cin  >> numB;
-   
-   while (numA != numB) { // Euclid's algorithm
-      if (numB > numA) {
-         numB = numB - numA;
+   int userValue;
+   int minNumber;
+
+   cin >> userValue;
+
+   minNumber = userValue;
+
+   while (userValue > 0) {
+      if (userValue < minNumber) {
+         minNumber = userValue;
       }
-      else {
-         numA = numA - numB;
-      }
+      cin >> userValue;
    }
-   
-   cout << "GCD is: " << numA << endl;
-   
+
+   cout << "Min value: " << minNumber;
+
    return 0;
 }
