@@ -1,24 +1,30 @@
-
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main() {
-   // a1 b1 c1 d1 
-   // A1 B2 C3 D4
+   int stop;
+   int result;
+   int a;
+   int b;
 
-   int i = 1;
+   cin >> stop;
 
-   for (char c = 'A'; c < 'H'; c += 2, i += 2){
-      cout << c << i << " ";
-   }
+   for (a = 2; a < 5; ++a) {
+      result = 0;
 
-cout << endl << endl;
-
-   for (int i = 2; i <= 2000; i *= 10){
-      cout << i << ' ';
+      for (b = 0; b < 3; ++b) {
+         result += b;
       }
-   
+
+      result += a;
+      
+      cout << result;  
+      cout << endl;
+      
+      if (result > stop) {
+         break;
+      }
+   }
 
    return 0;
 }
