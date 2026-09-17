@@ -71,7 +71,7 @@ function generateReport() {
 
     inventory.forEach((item) => {
         if (item.quantity < 10){
-        console.log(`%c${item.name + " " +  item.category}`, "color: red")
+        console.log(`%c${item.name + " " +  item.category}`, "background-color: red")
         }
 
         else {
