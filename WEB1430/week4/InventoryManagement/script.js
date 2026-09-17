@@ -3,7 +3,7 @@
 const inventory = [
     {id: 1, name: "Mouse", category: "Electronics", quantity: 50, price: 49.99},
     {id: 2, name: "Lamp", category: "Electronics", quantity: 10, price: 29.99},
-    {id: 3, name: "speaker", category: "Electronics", quantity: 5, price: 99.99},
+    {id: 3, name: "Speaker", category: "Electronics", quantity: 5, price: 99.99},
     {id: 4, name: "Mouse Pad", category: "Office Supplies", quantity: 10, price: 15.99},
     {id: 5, name: "Pencil", category: "Office Supplies", quantity: 200, price: .99}
 ]
@@ -67,15 +67,15 @@ function updateProductQuantity(id, newQuantity){
 
 // this function is what generates a report
 function generateReport() {
-    console.log("\n====== INVENTORY REPORT ======");
+    console.log("\n====== INVENTORY REPORT ======\n   Low-stock is highlighted");
 
     inventory.forEach((item) => {
         if (item.quantity < 10){
-        console.log(`%c${item.name + " " +  item.category}`, "background-color: red")
+        console.log(`%cID: ${item.id} Item: ${item.name} Category: ${item.category} Quantity: ${item.quantity} Price: $${item.price}`, "background-color: #7a4343")
         }
 
         else {
-            console.log(item)
+            console.log(`ID: ${item.id} Item: ${item.name} Category: ${item.category} Quantity: ${item.quantity} Price: $${item.price}`)
         }
     }
     
