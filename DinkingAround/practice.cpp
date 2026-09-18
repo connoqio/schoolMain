@@ -1,29 +1,17 @@
 #include <iostream>
+#include <string>
+#include <cctype>
 using namespace std;
 
 int main() {
-   int stop;
-   int result;
-   int a;
-   int b;
+   string inputString;
 
-   cin >> stop;
+   getline(cin, inputString);
 
-   for (a = 2; a < 5; ++a) {
-      result = 0;
-
-      for (b = 0; b < 3; ++b) {
-         result += b;
-      }
-
-      result += a;
-      
-      cout << result;  
-      cout << endl;
-      
-      if (result > stop) {
-         break;
-      }
+   if (isalpha(inputString[0]) && isalpha(inputString[1]) && isalpha(inputString[2])){
+      cout << "Valid string" << endl;
+   } else {
+      cout << "Invalid string" << endl;  
    }
 
    return 0;
