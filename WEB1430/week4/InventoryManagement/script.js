@@ -71,29 +71,58 @@ function generateReport() {
 
     inventory.forEach((item) => {
         if (item.quantity < 10){
-        console.log(`%cID: ${item.id} Item: ${item.name} Category: ${item.category} Quantity: ${item.quantity} Price: $${item.price}`, "background-color: #7a4343")
+        console.log(`%cID: ${item.id} Item: ${item.name} Category: ${item.category} \
+Quantity: ${item.quantity} Price: $${item.price}`, "background-color: #7a4343")
         }
 
         else {
-            console.log(`ID: ${item.id} Item: ${item.name} Category: ${item.category} Quantity: ${item.quantity} Price: $${item.price}`)
+            console.log(`ID: ${item.id} Item: ${item.name} Category: ${item.category} \
+Quantity: ${item.quantity} Price: $${item.price}`)
         }
     }
-    
-
     )
+};
 
+//this filters by category
+function filterByCategory(items, category){
+    const filtered = items.filter(item => item.category.toLowerCase() === category.toLowerCase());
 
+    if (filtered.length === 0) {
+        return `No items found in category "${category}".`;
+    }
 
+    return filtered
+        .map(item => `ID: ${item.id} | Item: ${item.name} | Qty: ${item.quantity} | Price: $${item.price}`)
+        .join("\n");
+};
 
+// this function calculates the total value of everything in the array
+function calculateTotalInventoryValue(){
+    const totalValue = inventory.reduce((total, item) => total + 
+    item.quantity * item.price, 0);
+
+    console.log(`Total inventory value: $${totalValue.toFixed(2)}`);
+  return totalValue;
 };
 
 
+// these are all the function calls
 console.log(inventory);
 
 addProduct("Cable", "Electronics", 40, 9.99);
+addProduct("Dongle",  "Electronics", 15, 13.99)
 
 removeProduct(1);
+removeProduct(5)
 
-updateProductQuantity(2, 30);
+updateProductQuantity(2, 7);
+updateProductQuantity(7, 3);
 
 generateReport()
+
+console.log("\n" + filterByCategory(inventory, "electronics"))
+console.log("\n" + filterByCategory(inventory, "office supplies"))
+
+
+calculateTotalInventoryValue()
+
