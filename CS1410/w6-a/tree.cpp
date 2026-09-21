@@ -30,14 +30,14 @@ int main() {
             cout << ' ';
         }
         cout << "\\";
-        cout << "\n";
+        cout << endl;
     }
 
 int baseWidth = height * 2;
     for (int i =  0; i < baseWidth; i++){
         cout << "-";
     }
-    cout << "\n";
+    cout << endl;
 
 
     // this is the code for the trunk
@@ -50,7 +50,7 @@ int trunkHeight = height / 2;
             cout << ' ';
         }
         cout << "||";
-        cout << '\n';
+        cout << endl;
     }
 
     return 0;
