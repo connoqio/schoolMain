@@ -1,5 +1,6 @@
-/*this is connor's tree project, started this september 21 around 12:30
-I finished this at */
+/*this is connor's tree project, started this september 21 around 12:30pm
+I finished this at 2:00pm
+this project was definitely more challenging for me */
 
 #include <iostream>
 using namespace std;
