@@ -33,6 +33,7 @@ int main() {
         cout << endl;
     }
 
+    // this is the code that prints the '-' at the bottom of the tree
 int baseWidth = height * 2;
     for (int i =  0; i < baseWidth; i++){
         cout << "-";
