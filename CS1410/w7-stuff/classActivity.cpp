@@ -1,3 +1,8 @@
+/*
+this program is connors, it prints out a 4x6 array with #'s replacing certain numbers if conditions are met.
+this took 30 min do to. 
+*/
+
 #include <iostream>
 using namespace std;
 
