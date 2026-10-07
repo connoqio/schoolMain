@@ -15,11 +15,25 @@ int main(){
     int val = 0;
     int arr[4][6];
 
-    for(int i = 0; i < 4; i++){
-        for(int j = 0; j < 6; j++){
-            if(j != i + 2){
-                arr[i][j] = j + 1 + i;
+    for (int i = 0; i < 4; i++){
+        for (int j = 0; j < 6; j++){
+            if(i + 2 == j){
+                arr[i][j] = val;
+            } else{
+                arr[i][j] = i + j + 1;
             }
         }
     }
+    for (int i = 0; i < 4; i++){
+        for (int j = 0; j < 6; j++){
+            if (arr[i][j] == 0) {
+                cout << "# ";
+            } else {
+                cout << arr[i][j] << " ";
+            }
+        }
+        cout << endl;
+    }
+ 
+    cout << "DONE" << endl;
 }
