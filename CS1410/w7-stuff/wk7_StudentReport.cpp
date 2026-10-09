@@ -1,5 +1,6 @@
 /*
 connor edited this code
+it took 30 minutes to complete
 week 7
 Generate the student report as instructed in the class
 Section 5.5 Multiple vectors --- aka parallel vectors
@@ -53,19 +54,19 @@ int main() {
 -----------------------------------------
 	*/
 
-	cout << "\n-----------------------------------------" << endl;
-	cout << left << setw(20) << "Name" << " | "
+	cout << "\n-------------------------------------------" << endl;
+	cout << "| " << left << setw(20) << "Name" << " | "
 		<< right << setw(8) << "Credits" << " | "
 		<< right << setw(7) << "GPA" << "|";
 
 
 	for (int i = 0; i < names.size(); i++) {
-		cout << "\n-----------------------------------------" << endl;
-		cout << left << setw(20) << names.at(i) << " | "
+		cout << "\n-------------------------------------------" << endl;
+		cout << "| " << left << setw(20) << names.at(i) << " | "
 			<< right << setw(8) << numCredits.at(i) << " | "
 			<< right << setw(7) << fixed << setprecision(2) << gpas.at(i) << "|";
 	}
-	cout << "\n-----------------------------------------" << endl;
+	cout << "\n-------------------------------------------" << endl;
 
 
 	//cout << names.at(0) << " " << numCredits.at(0) << " " << gpas.at(0);
