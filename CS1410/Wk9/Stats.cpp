@@ -1,6 +1,7 @@
 /* 
 This is Connors stats assignment, it is currently 10/25/26
 Time alloted to this assignment: 
+1 hour
 */
 
 #include <iostream>
