@@ -1,4 +1,4 @@
-const API_KEY = 'a6d390919442c3d07421ca4379825b43';
+const API_KEY = '46fe44cf456b420a821214757262710';
 function initializeWeatherApp() {
 
     const appContainer = document.createElement('div');
@@ -40,7 +40,7 @@ function initializeWeatherApp() {
 
     appContainer.appendChild(controlsDiv);
 
-    // Error message 
+    // This outputs an error message 
     const errorDiv = document.createElement('div');
     errorDiv.id = 'errorDiv';
     errorDiv.className = 'error-message';
@@ -118,18 +118,18 @@ async function fetchWeatherData(city) {
         clearError();
         updateWeatherUI(data, unit);
     } catch (error) {
-        console.warn('API fetch failed or key missing. Using simulated response for demonstration.', error);
-        
-        // Fallback simulation if API key is placeholder or fetch fails
-        if (API_KEY === 'a6d390919442c3d07421ca4379825b43' || error.message.includes('Failed to fetch')) {
+        console.warn('API fetch failed. Using fallback if network error:', error);
+    
+    // Fallback simulation only if network drops completely
+        if (error.message.includes('Failed to fetch')) {
             const mockData = getMockWeatherData(city);
             localStorage.setItem('lastCity', city);
             clearError();
             updateWeatherUI(mockData, unit);
         } else {
             showError('Could not retrieve weather data. Please check the city name.');
-        }
     }
+}
 }
 
 function updateWeatherUI(data, unit) {
