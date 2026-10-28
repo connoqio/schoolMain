@@ -1,21 +1,7 @@
 {
-  "version": "0.2.0",
   "configurations": [
     {
-      "name": "C/C++: Debug (Windows - MinGW)",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${fileDirname}",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "gdb",
-      "preLaunchTask": "C/C++: g++ build active file"
-    },
-    {
-      "name": "C/C++: Debug (macOS - Clang)",
+      "name": "C/C++: clang++ build and debug active file",
       "type": "cppdbg",
       "request": "launch",
       "program": "${fileDirname}/${fileBasenameNoExtension}",
@@ -23,9 +9,10 @@
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
-      "externalConsole": false,
+      "externalConsole": true,
       "MIMode": "lldb",
       "preLaunchTask": "C/C++: clang++ build active file"
     }
-  ]
+  ],
+  "version": "2.0.0"
 }

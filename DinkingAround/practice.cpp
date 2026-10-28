@@ -1,17 +1,16 @@
 #include <iostream>
-#include <iomanip>
-
-//
+#include <vector>
+#include <string>
 
 using namespace std;
 
-double ComputeAverage(int numCount);
-//signature/Prototype of a function
+int main()
+{
+    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
 
-int max(int x, int y){
-      return (x < y) ? x : y;
-   }
-
-int main1() {
-
+    for (const string& word : msg)
+    {
+        cout << word << " ";
+    }
+    cout << endl;
 }
