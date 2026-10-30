@@ -55,12 +55,12 @@ int main(){
 
 
 
-    // for(int r = 0; r < 4; r++){
-    //     for(int c = 0; c < 5; c++){
-    //         cout << char('A' + r) << (c + 1) << " ";
-    //     }
-    //     cout << endl;
-    // }
+    for(int r = 0; r < 4; r++){
+        for(int c = 0; c < 5; c++){
+            cout << char('A' + r) << (c + 1) << " ";
+        }
+        cout << endl;
+    }
     cout << endl;
     return 0;
 }
