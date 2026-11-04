@@ -1,40 +1,89 @@
-#if 0
-
 #include <iostream>
-#include <vector>
 #include <string>
-
+#include <vector>
 using namespace std;
 
-void Histogram(const vector <int>& scores, vector <int>& bins){
-   for (int i = 0; i < scores.size(); i++){
-      if (scores.at(i) >= 75){
-         bins.at(2)++;
-      } else if (scores.at(i) >= 70){
-         bins.at(1)++;
-      } else {
-         bins.at(0)++;
-      }
-   }
+class Product {
+   public:
+      void SetPriceAndName(int productPrice, string productName) {
+         price = productPrice;
+         name = productName;
+      };
+      int GetPrice() const { return price; };
+      string GetName() const { return name; };
+   private:
+      int price; // in dollars
+      string name;
+};
+// END Product class
 
+class Products {
+   public:
+      void InputProducts();
+      void PrintAfterDiscount(int discountPrice);
+   private:
+      vector<Product> productList;
+};
+
+void Products::InputProducts() {
+   Product currProduct;
+   int currPrice;
+   string currName;
+
+   cin >> currPrice;
+   while (currPrice > 0) {
+      cin >> currName;
+      currProduct.SetPriceAndName(currPrice, currName);
+      productList.push_back(currProduct);
+      cin >> currPrice;
+   }
 }
 
-int main()
-{
-   vector<int> scores = { 10, 75, 20, 80, 90, 60, 1};
-   vector<int> bins(3);
+void Products::PrintAfterDiscount(int discountPrice) {
+   unsigned int i;
+   int currDiscountPrice;
 
-   Histogram(scores, bins);
-
-   for (int i = bins.size() - 1; i >= 0; i--){
-      cout << " " << i << "| ";
-
-      for (int st = 0; st < bins.at(i); st++){
-         cout << "*";
-      }
-      cout << endl;
+   for (i = 0; i < productList.size(); ++i) {
+      currDiscountPrice = productList.at(i).GetPrice() - discountPrice;
+      cout << "$" << currDiscountPrice << " " << productList.at(i).GetName() << endl;
    }
+}
+// END Products class
+
+// New: Store class has been added
+class Store {
+   public:
+      void SetName(string storeName) {
+         name = storeName;
+      }
+      void ReadAllProducts();
+      void PrintSale(int saleAmount);
+   private:
+      string name;
+      Products products;
+};
+
+void Store::ReadAllProducts() {
+   products.InputProducts();
+}
+
+void Store::PrintSale(int saleAmount) {
+   cout << name << "'s sale:" << endl;
+   products.PrintAfterDiscount(saleAmount);
+}
+// New: END Store class
+
+int main() {
+
+   // New: main() now uses Store class
+   Store ourPlace;
+   string currName;
+
+   cin >> currName;
+   ourPlace.SetName(currName);
+
+   ourPlace.ReadAllProducts();
+   ourPlace.PrintSale(2);
 
    return 0;
 }
-#endif
