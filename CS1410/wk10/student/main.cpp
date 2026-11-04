@@ -18,49 +18,6 @@ using namespace std;
 
 // encapsulation - user defined data type
 
-class Student {
-
-private:
-    string name = "unknown";
-    int numCredits = -1;
-    double gpa = -2;
-
-public:
-// member functions
-    // setters - mutators
-    void SetName(string sname) {
-        name = sname;
-    }
-
-    void SetNumCredits(int nCredits) {
-        numCredits = nCredits;
-    }
-
-    void SetGPA(double sGpa){
-        gpa = sGpa;
-    }
-
-    // getters - accessors
-
-
-    string GetName() const {
-        return name;
-    }
-
-    int GetNumCredits() const {
-        return numCredits;
-    }
-
-    double GetGPA() const {
-        return gpa;
-    }
-
-    void PrintInfo() {
-        cout << endl << name << ": " << numCredits << ' ' << gpa << endl;
-    }
-
-};
-
 int main(){
 
     int i = 12;
@@ -69,15 +26,7 @@ int main(){
     Student bond;
 
 
-    string word = "hello"; // !
-
-    cout << word.size() << endl; // . member access operator
-
-    cout << word.substr(1,2) << endl;
-
-    cout << word << endl;
-    word.push_back('!');
-    cout << "\nafter push " << word << endl;
+   
 
     cout << "name: " << alice.GetName() << endl;
     cout << "credits: " << alice.GetNumCredits() << endl;
