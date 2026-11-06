@@ -1,26 +1,26 @@
-#ifndef STUDENT_H
-#define STUDENT_H
+// #ifndef STUDENT_H
+// #define STUDENT_H
 
-#include <string>
+// #include <string>
 
-using namespace std;
+// using namespace std;
 
-class Student {
-private:
-    string name = "unknown";
-    int numCredits = -1;
-    double gpa = -2;
+// class Student {
+// private:
+//     string name = "unknown";
+//     int numCredits = -1;
+//     double gpa = -2;
 
-public:
-    void SetName(string sname);
-    void SetNumCredits(int nCredits);
-    void SetGPA(double sGpa);
+// public:
+//     void SetName(string sname);
+//     void SetNumCredits(int nCredits);
+//     void SetGPA(double sGpa);
     
-    string GetName() const;
-    int GetNumCredits() const;
-    double GetGPA() const;
+//     string GetName() const;
+//     int GetNumCredits() const;
+//     double GetGPA() const;
     
-    void PrintInfo();
-};
+//     void PrintInfo();
+// };
 
-#endif
+// #endif
