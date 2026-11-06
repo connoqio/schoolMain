@@ -1,89 +1,49 @@
 #include <iostream>
 #include <string>
-#include <vector>
 using namespace std;
 
-class Product {
+class Students {
    public:
-      void SetPriceAndName(int productPrice, string productName) {
-         price = productPrice;
-         name = productName;
-      };
-      int GetPrice() const { return price; };
-      string GetName() const { return name; };
-   private:
-      int price; // in dollars
-      string name;
-};
-// END Product class
+      Students();
+      Students(int);
+      int GetTotal() const { return  numStudents; }
 
-class Products {
-   public:
-      void InputProducts();
-      void PrintAfterDiscount(int discountPrice);
    private:
-      vector<Product> productList;
+      int numStudents;
 };
 
-void Products::InputProducts() {
-   Product currProduct;
-   int currPrice;
-   string currName;
+Students::Students() : numStudents(0) {}
+Students::Students(int num) : numStudents(num) {}
 
-   cin >> currPrice;
-   while (currPrice > 0) {
-      cin >> currName;
-      currProduct.SetPriceAndName(currPrice, currName);
-      productList.push_back(currProduct);
-      cin >> currPrice;
-   }
-}
-
-void Products::PrintAfterDiscount(int discountPrice) {
-   unsigned int i;
-   int currDiscountPrice;
-
-   for (i = 0; i < productList.size(); ++i) {
-      currDiscountPrice = productList.at(i).GetPrice() - discountPrice;
-      cout << "$" << currDiscountPrice << " " << productList.at(i).GetName() << endl;
-   }
-}
-// END Products class
-
-// New: Store class has been added
-class Store {
+class Tutor {
    public:
-      void SetName(string storeName) {
-         name = storeName;
-      }
-      void ReadAllProducts();
-      void PrintSale(int saleAmount);
+      Tutor(string);
+      Tutor(string, int);
+      void Print() const;
+
    private:
       string name;
-      Products products;
+      Students students;
 };
 
-void Store::ReadAllProducts() {
-   products.InputProducts();
-}
+Tutor::Tutor(string tutorName) : name(tutorName) {}
+Tutor::Tutor(string tutorName, int numStudents) : name(tutorName), students(numStudents) {}
 
-void Store::PrintSale(int saleAmount) {
-   cout << name << "'s sale:" << endl;
-   products.PrintAfterDiscount(saleAmount);
+void Tutor::Print() const {
+   if (students.GetTotal() == 0){
+      cout << name << " is alone" << endl;
+   }
+   else {
+      cout << name << " teaches " << students.GetTotal() << " students" << endl;
+   }
 }
-// New: END Store class
 
 int main() {
+   Tutor myTutor("Leo");
+   Tutor yourTutor("Aya", 2);
 
-   // New: main() now uses Store class
-   Store ourPlace;
-   string currName;
-
-   cin >> currName;
-   ourPlace.SetName(currName);
-
-   ourPlace.ReadAllProducts();
-   ourPlace.PrintSale(2);
+   myTutor.Print();
+   yourTutor.Print();
 
    return 0;
 }

@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    const int NUM_STUDS = 2;
+    const int NUM_STUDS = 10;
     Student studs[NUM_STUDS];
     string sName;
     int sID;
