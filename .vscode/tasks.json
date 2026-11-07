@@ -10,7 +10,7 @@
                 "-Wall",
                 "-Wextra",
                 "-g",
-                "${file}",
+                "${workspaceFolder}/*.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
