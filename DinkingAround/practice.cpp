@@ -1,49 +1,36 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
-class Students {
+class Airplane {
    public:
-      Students();
-      Students(int);
-      int GetTotal() const { return  numStudents; }
-
+      Airplane();
+      void AddPassengers(int passengers);
+      int GetAvailableSeats() const;
    private:
-      int numStudents;
+      int totalSeats;
+      int passengers;
 };
 
-Students::Students() : numStudents(0) {}
-Students::Students(int num) : numStudents(num) {}
+Airplane::Airplane() {
+   totalSeats = 400;
+   passengers = 0;
+}
 
-class Tutor {
-   public:
-      Tutor(string);
-      Tutor(string, int);
-      void Print() const;
+void Airplane::AddPassengers(int passengers) {
+   this->passengers = this->passengers + passengers;
+}
 
-   private:
-      string name;
-      Students students;
-};
-
-Tutor::Tutor(string tutorName) : name(tutorName) {}
-Tutor::Tutor(string tutorName, int numStudents) : name(tutorName), students(numStudents) {}
-
-void Tutor::Print() const {
-   if (students.GetTotal() == 0){
-      cout << name << " is alone" << endl;
-   }
-   else {
-      cout << name << " teaches " << students.GetTotal() << " students" << endl;
-   }
+int Airplane::GetAvailableSeats() const {
+   return totalSeats - passengers;
 }
 
 int main() {
-   Tutor myTutor("Leo");
-   Tutor yourTutor("Aya", 2);
+   Airplane airbus330;
 
-   myTutor.Print();
-   yourTutor.Print();
+   airbus330.AddPassengers(7);
+   airbus330.AddPassengers(10);
+
+   cout << airbus330.GetAvailableSeats() << " seats" << endl;
 
    return 0;
 }
