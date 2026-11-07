@@ -1,0 +1,6 @@
+{
+    "code-runner.runInTerminal": true,
+    "code-runner.executorMap": {
+        "cpp": "cd \"$dir\" && if [ \"$fileName\" = \"Main.cpp\" ] && [ -f \"$dir/Student.cpp\" ]; then g++ -std=c++17 -Wall -Wextra -g \"$file\" \"$dir/Student.cpp\" -o \"$dir/$fileNameWithoutExt\"; else g++ -std=c++17 -Wall -Wextra -g \"$file\" -o \"$dir/$fileNameWithoutExt\"; fi && \"$dir/$fileNameWithoutExt\""
+    }
+}

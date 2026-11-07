@@ -1,19 +1,33 @@
 {
+    "version": "0.2.0",
     "configurations": [
         {
-            "name": "C/C++: g++ build and debug all files",
+            "name": "C++ Debugger",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/program.exe",
+            // Dynamically targets whichever C++ file you currently have open
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
-            "externalConsole": true,
-            "MIMode": "gdb",
-            "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe",
-            "preLaunchTask": "C/C++: Build All C++ Files"
+            "externalConsole": false,
+            "MIMode": "lldb",
+            // Automatically runs your build task right before debugging starts
+            "preLaunchTask": "C/C++: g++ build active file"
+        },
+        {
+            "name": "Run project7",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/CS1410/wk11/project7/Main",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/CS1410/wk11/project7",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "C/C++: g++ build project7"
         }
-    ],
-    "version": "2.0.0"
+    ]
 }

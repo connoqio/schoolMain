@@ -1,49 +1,50 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "build",
-      "type": "shell",
-      "command": "g++",
-      "args": [
-        "-std=c++17",
-        "-Wall",
-        "-g",
-        "${file}",
-        "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
-      ],
-      "windows": {
-        "args": [
-          "-std=c++17",
-          "-Wall",
-          "-g",
-          "${file}",
-          "-o",
-          "${fileDirname}\\${fileBasenameNoExtension}.exe"
-        ]
-      },
-      "problemMatcher": ["$gcc"],
-      "group": "build"
-    },
-    {
-      "label": "run",
-      "type": "shell",
-      "command": "${fileDirname}/${fileBasenameNoExtension}",
-      "windows": {
-        "command": "${fileDirname}\\${fileBasenameNoExtension}.exe"
-      },
-      "dependsOn": "build",
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared",
-        "focus": true
-      },
-      "group": {
-        "kind": "test",
-        "isDefault": true
-      },
-      "problemMatcher": []
-    }
-  ]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++ build active file",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-std=c++17",
+                "-Wall",
+                "-Wextra",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++ build project7",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-std=c++17",
+                "-Wall",
+                "-Wextra",
+                "-g",
+                "${workspaceFolder}/CS1410/wk11/project7/Main.cpp",
+                "${workspaceFolder}/CS1410/wk11/project7/Student.cpp",
+                "-o",
+                "${workspaceFolder}/CS1410/wk11/project7/Main"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/CS1410/wk11/project7"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
 }
