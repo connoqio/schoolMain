@@ -1,51 +1,49 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "type": "cppbuild",
-            "label": "Build project7 (Main.cpp + Student.cpp)",
-            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
-            "args": [
-                "-fdiagnostics-color=always",
-                "-std=c++17",
-                "-g",
-                "Main.cpp",
-                "Student.cpp",
-                "-o",
-                "program.exe"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/CS1410/wk11/project7"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "detail": "Compiler: MSYS2 UCRT64 g++"
-        },
-        {
-            "type": "cppbuild",
-            "label": "C/C++: Build All C++ Files",
-            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
-            "args": [
-                "-fdiagnostics-color=always",
-                "-std=c++17",
-                "-g",
-                "*.cpp",
-                "-o",
-                "program.exe"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": "build",
-            "detail": "Compiler: MSYS2 UCRT64 g++"
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-Wall",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
+      "windows": {
+        "args": [
+          "-std=c++17",
+          "-Wall",
+          "-g",
+          "${file}",
+          "-o",
+          "${fileDirname}\\${fileBasenameNoExtension}.exe"
+        ]
+      },
+      "problemMatcher": ["$gcc"],
+      "group": "build"
+    },
+    {
+      "label": "run",
+      "type": "shell",
+      "command": "${fileDirname}/${fileBasenameNoExtension}",
+      "windows": {
+        "command": "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      },
+      "dependsOn": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "focus": true
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
 }
