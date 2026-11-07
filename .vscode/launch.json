@@ -1,18 +1,19 @@
 {
-  "configurations": [
-    {
-      "name": "C/C++: clang++ build and debug active file",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${fileDirname}/${fileBasenameNoExtension}",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${fileDirname}",
-      "environment": [],
-      "externalConsole": true,
-      "MIMode": "lldb",
-      "preLaunchTask": "C/C++: clang++ build active file"
-    }
-  ],
-  "version": "2.0.0"
+    "configurations": [
+        {
+            "name": "C/C++: g++ build and debug all files",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/program.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe",
+            "preLaunchTask": "C/C++: Build All C++ Files"
+        }
+    ],
+    "version": "2.0.0"
 }
