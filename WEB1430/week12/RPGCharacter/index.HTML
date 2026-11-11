@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RPG Character Roster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="masthead">
+    <h1>Character Roster</h1>
+    <p>Create a hero, then test how damage, healing and upgrade their experience for them.</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-labelledby="create-title">
+      <h2 id="create-title">New character</h2>
+      <form id="character-form" autocomplete="off">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" maxlength="24" required placeholder="Aria Stormblade">
+
+        <label for="type">Class</label>
+        <select id="type" name="type">
+          <option value="warrior">Warrior</option>
+          <option value="mage">Mage</option>
+        </select>
+
+        <div class="row">
+          <div>
+            <label for="health">Health</label>
+            <input id="health" name="health" type="number" min="1" max="999" value="100" required>
+          </div>
+          <div>
+            <label for="strength">Strength</label>
+            <input id="strength" name="strength" type="number" min="1" max="999" value="10" required>
+          </div>
+        </div>
+
+        <label for="special" id="special-label">Weapon</label>
+        <input id="special" name="special" type="text" maxlength="24" required placeholder="Iron greatsword">
+
+        <button type="submit" class="primary">Create character</button>
+      </form>
+    </section>
+
+    <section class="roster" aria-labelledby="roster-title">
+      <div class="roster-head">
+        <h2 id="roster-title">Your characters</h2>
+        <div class="amount">
+          <label for="amount">Amount per action</label>
+          <input id="amount" type="number" min="1" max="999" value="15">
+        </div>
+      </div>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+      <div id="characters" class="cards"></div>
+      <p id="empty" class="empty">No characters yet. Fill in the form to create your first Warrior or Mage.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
