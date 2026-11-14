@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Culinary Explorer — Smart Recipe & Meal Planner</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Top Header matching wireframe -->
+  <header class="app-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo-icon" aria-hidden="true">🍳</span>
+        <h1>Culinary Explorer</h1>
+      </div>
+
+      <form id="search-form" class="search-bar" role="search">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search recipes or ingredients (e.g., chicken, pasta)..."
+          aria-label="Search recipes or ingredients"
+        />
+        <select id="category-select" aria-label="Meal Category">
+          <option value="">All Meals</option>
+          <option value="breakfast">Breakfast</option>
+          <option value="main course">Lunch / Dinner</option>
+          <option value="salad">Salad</option>
+          <option value="snack">Snack</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+
+      <button id="theme-toggle" class="btn btn-icon" aria-label="Toggle dark mode" title="Toggle Theme">
+        🌙
+      </button>
+    </div>
+
+    <!-- Filter Bar matching wireframe -->
+    <div class="filter-bar">
+      <div class="container filter-inner">
+        <span class="filter-label">Filter:</span>
+        <div class="filter-chips" id="filter-chips" role="group" aria-label="Dietary and Time Filters">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="vegetarian">Vegetarian</button>
+          <button class="chip" data-filter="glutenFree">Gluten Free</button>
+          <button class="chip" data-filter="quick">&lt; 30 min</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-layout">
+    <!-- Status / Error Banner -->
+    <div id="status-banner" class="status-banner hidden" role="status"></div>
+
+    <!-- Searched Recipes Section -->
+    <section class="recipes-section" aria-labelledby="searched-heading">
+      <div class="section-header">
+        <h2 id="searched-heading">Searched Recipes</h2>
+        <span id="results-count" class="badge">0 recipes</span>
+      </div>
+      <div id="recipe-grid" class="recipe-grid"></div>
+    </section>
+
+    <!-- Bottom / Side Section: Favorites & Meal Planner matching wireframe -->
+    <section class="planner-section" aria-labelledby="planner-heading">
+      <div class="planner-grid">
+        <!-- Favorites Panel -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 id="planner-heading">Favorites</h2>
+            <span id="favorites-count" class="badge">Saved: 0</span>
+          </div>
+          <ul id="favorites-list" class="item-list">
+            <li class="empty-state">No saved recipes yet. Click "Save" on any recipe!</li>
+          </ul>
+        </div>
+
+        <!-- Daily Meal Planner & Nutrition Calculator -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Daily Meal Planner</h2>
+            <button id="clear-planner-btn" class="btn btn-sm btn-outline">Clear Day</button>
+          </div>
+
+          <div class="nutrition-summary" id="nutrition-summary">
+            <div class="macro-box">
+              <span class="macro-value" id="total-calories">0</span>
+              <span class="macro-label">Total Calories</span>
+            </div>
+            <div class="macro-box">
+              <span class="macro-value" id="total-protein">0g</span>
+              <span class="macro-label">Protein</span>
+            </div>
+            <div class="macro-box">
+              <span class="macro-value" id="total-carbs">0g</span>
+              <span class="macro-label">Carbs</span>
+            </div>
+            <div class="macro-box">
+              <span class="macro-value" id="total-fat">0g</span>
+              <span class="macro-label">Fat</span>
+            </div>
+          </div>
+
+          <ul id="planner-list" class="item-list">
+            <li class="empty-state">Add meals from recipe details to calculate daily totals.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Recipe Details Modal -->
+  <div id="recipe-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <button id="close-modal-btn" class="modal-close" aria-label="Close modal">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
