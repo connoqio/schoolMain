@@ -1,6 +1,6 @@
 /*
-Name:
-Date:
+Name: Connor Okey
+Date: nov. 20
 Project: Programming Project 8 (Inheritance)
 Description: (write 1 or 2 sentences about what your program does)
 
@@ -112,7 +112,7 @@ Hint: the constructor takes (string n, double l, double w, double h) and
 passes n, l, w to the Rectangle constructor.
 Hint: GetArea() returns (area of the rectangle) * height. Use Rectangle::GetArea().
 */
-
+class RectCylinder {};
 
 /*
 TODO 2: Add the class TriPrism (a triangular prism).
