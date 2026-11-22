@@ -1,0 +1,1 @@
+ss SizedItem : public M

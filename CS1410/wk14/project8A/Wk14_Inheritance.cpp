@@ -112,7 +112,7 @@ Hint: the constructor takes (string n, double l, double w, double h) and
 passes n, l, w to the Rectangle constructor.
 Hint: GetArea() returns (area of the rectangle) * height. Use Rectangle::GetArea().
 */
-class RectCylinder {};
+class RectCylinder : public Rectangle {};
 
 /*
 TODO 2: Add the class TriPrism (a triangular prism).

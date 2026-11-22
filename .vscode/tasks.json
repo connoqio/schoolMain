@@ -4,15 +4,16 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++ build active file",
-            "command": "/usr/bin/g++",
+            "command": "g++.exe",
             "args": [
+                "-fdiagnostics-color=always",
                 "-std=c++17",
                 "-Wall",
                 "-Wextra",
                 "-g",
-                "${workspaceFolder}/*.cpp",
+                "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -28,19 +29,20 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++ build project7",
-            "command": "/usr/bin/g++",
+            "command": "g++.exe",
             "args": [
+                "-fdiagnostics-color=always",
                 "-std=c++17",
                 "-Wall",
                 "-Wextra",
                 "-g",
-                "${workspaceFolder}/CS1410/wk11/project7/Main.cpp",
-                "${workspaceFolder}/CS1410/wk11/project7/Student.cpp",
+                "${workspaceFolder}\\CS1410\\wk11\\project7\\Main.cpp",
+                "${workspaceFolder}\\CS1410\\wk11\\project7\\Student.cpp",
                 "-o",
-                "${workspaceFolder}/CS1410/wk11/project7/Main"
+                "${workspaceFolder}\\CS1410\\wk11\\project7\\Main.exe"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/CS1410/wk11/project7"
+                "cwd": "${workspaceFolder}\\CS1410\\wk11\\project7"
             },
             "problemMatcher": [
                 "$gcc"
