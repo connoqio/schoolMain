@@ -112,7 +112,22 @@ Hint: the constructor takes (string n, double l, double w, double h) and
 passes n, l, w to the Rectangle constructor.
 Hint: GetArea() returns (area of the rectangle) * height. Use Rectangle::GetArea().
 */
-class RectCylinder : public Rectangle {};
+class RectCylinder : public Rectangle {
+private:
+	double height;
+
+public:
+	RectCylinder(string n, double l, double w, double h) : Rectangle(n, l, w), height(h) { }
+
+	void SetHeight(double h) { height = h; }
+	double GetHeight() const { return height; }
+	double GetArea()
+	{
+		return Rectangle::GetArea() * height;
+	}
+};
+
+
 
 /*
 TODO 2: Add the class TriPrism (a triangular prism).
@@ -124,6 +139,20 @@ passes n, b, h to the Triangle constructor.
 Hint: GetArea() returns (area of the triangle) * depth. Use Triangle::GetArea().
 */
 
+class TriPrism : public Triangle {
+private:
+	double depth;
+public:
+	TriPrism(string n, double b, double h, double d) : Triangle(n, b, h), depth(d) { }
+
+	void SetDepth(double d) { depth = d; }
+	double GetDepth() const { return depth; }
+	double GetArea()
+	{
+		return Triangle::GetArea() * depth;
+	}
+};
+
 
 int main()
 {
@@ -132,6 +161,9 @@ int main()
 	cout << "Type r or R for Rectangle" << endl;
 	cout << "Type t or T for Triangle" << endl;
 	cout << "Type d or D for Cylinder" << endl;
+	cout << "Type n or N for RectCylinder" << endl;
+	cout << "Type p or P for TriPrism" << endl;
+
 
 	/*
 	TODO 3: Add two more menu lines, in the same style as the lines above.
@@ -139,7 +171,7 @@ int main()
 	Hint: p or P for TriPrism
 	*/
 
-	char	choice;
+	char   choice;
 	cin >> choice;
 	cin.ignore();
 
@@ -152,6 +184,8 @@ int main()
 	TODO 4: Declare two more pointers, set to nullptr.
 	Hint: one RectCylinder pointer and one TriPrism pointer.
 	*/
+	RectCylinder* n = nullptr;
+	TriPrism* p = nullptr;
 
 	// Creating a shape according to user choice
 	switch (choice)
@@ -181,6 +215,16 @@ int main()
 		Hint: cases 'n' and 'N' create a RectCylinder; cases 'p' and 'P' create a TriPrism.
 		Hint: write the sizes of the test cases right here in the code.
 		*/
+	case 'n':
+	case 'N':
+		n = new RectCylinder("RectCylinder", 10, 20, 30);
+		break;
+
+	case 'p':
+	case 'P':
+		p = new TriPrism("TriPrism", 100, 20.5, 30);
+		break;
+		
 
 	default:
 		cout << "There is no such choice." << endl;
@@ -214,6 +258,16 @@ int main()
 		TODO 6: Add two more cases that print the name and area of the new shapes.
 		Hint: copy the pattern of the case just above.
 		*/
+
+	case 'n':
+	case 'N':
+		cout << n->GetName() << ", area: " << n->GetArea() << endl << endl;
+		break;
+
+	case 'p':
+	case 'P':
+		cout << p->GetName() << ", area: " << p->GetArea() << endl << endl;
+		break;
 
 	default:
 		cout << "There is no such choice." << endl;

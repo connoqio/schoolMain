@@ -1,10 +1,63 @@
+// {
+//     "version": "2.0.0",
+//     "tasks": [
+//         {
+//             "type": "cppbuild",
+//             "label": "C/C++: g++ build active file",
+//             "command": "g++.exe",
+//             "args": [
+//                 "-fdiagnostics-color=always",
+//                 "-std=c++17",
+//                 "-Wall",
+//                 "-Wextra",
+//                 "-g",
+//                 "${file}",
+//                 "-o",
+//                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
+//             ],
+//             "options": {
+//                 "cwd": "${fileDirname}"
+//             },
+//             "problemMatcher": [
+//                 "$gcc"
+//             ],
+//             "group": {
+//                 "kind": "build",
+//                 "isDefault": true
+//             }
+//         },
+//         {
+//             "type": "cppbuild",
+//             "label": "C/C++: g++ build project7",
+//             "command": "g++.exe",
+//             "args": [
+//                 "-fdiagnostics-color=always",
+//                 "-std=c++17",
+//                 "-Wall",
+//                 "-Wextra",
+//                 "-g",
+//                 "${workspaceFolder}\\CS1410\\wk11\\project7\\Main.cpp",
+//                 "${workspaceFolder}\\CS1410\\wk11\\project7\\Student.cpp",
+//                 "-o",
+//                 "${workspaceFolder}\\CS1410\\wk11\\project7\\Main.exe"
+//             ],
+//             "options": {
+//                 "cwd": "${workspaceFolder}\\CS1410\\wk11\\project7"
+//             },
+//             "problemMatcher": [
+//                 "$gcc"
+//             ]
+//         }
+//     ]
+// }
+
 {
     "version": "2.0.0",
     "tasks": [
         {
             "type": "cppbuild",
             "label": "C/C++: g++ build active file",
-            "command": "g++.exe",
+            "command": "g++",
             "args": [
                 "-fdiagnostics-color=always",
                 "-std=c++17",
@@ -13,7 +66,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileDirname}/${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -24,29 +77,54 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
+            },
+            "windows": {
+                "args": [
+                    "-fdiagnostics-color=always",
+                    "-std=c++17",
+                    "-Wall",
+                    "-Wextra",
+                    "-g",
+                    "${file}",
+                    "-o",
+                    "${fileDirname}/${fileBasenameNoExtension}.exe"
+                ]
             }
         },
         {
             "type": "cppbuild",
             "label": "C/C++: g++ build project7",
-            "command": "g++.exe",
+            "command": "g++",
             "args": [
                 "-fdiagnostics-color=always",
                 "-std=c++17",
                 "-Wall",
                 "-Wextra",
                 "-g",
-                "${workspaceFolder}\\CS1410\\wk11\\project7\\Main.cpp",
-                "${workspaceFolder}\\CS1410\\wk11\\project7\\Student.cpp",
+                "${workspaceFolder}/CS1410/wk11/project7/Main.cpp",
+                "${workspaceFolder}/CS1410/wk11/project7/Student.cpp",
                 "-o",
-                "${workspaceFolder}\\CS1410\\wk11\\project7\\Main.exe"
+                "${workspaceFolder}/CS1410/wk11/project7/Main"
             ],
             "options": {
-                "cwd": "${workspaceFolder}\\CS1410\\wk11\\project7"
+                "cwd": "${workspaceFolder}/CS1410/wk11/project7"
             },
             "problemMatcher": [
                 "$gcc"
-            ]
+            ],
+            "windows": {
+                "args": [
+                    "-fdiagnostics-color=always",
+                    "-std=c++17",
+                    "-Wall",
+                    "-Wextra",
+                    "-g",
+                    "${workspaceFolder}/CS1410/wk11/project7/Main.cpp",
+                    "${workspaceFolder}/CS1410/wk11/project7/Student.cpp",
+                    "-o",
+                    "${workspaceFolder}/CS1410/wk11/project7/Main.exe"
+                ]
+            }
         }
     ]
 }
