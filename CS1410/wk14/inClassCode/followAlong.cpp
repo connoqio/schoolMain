@@ -7,6 +7,13 @@ that is, data about the class
 
 Overriding a function
 
+For polymorphism to work:
+1. inheritance
+2. upcasting
+3. overriding a function
+4. abstract class
+5. virtual functions
+
 */
 
 #include <iostream>
