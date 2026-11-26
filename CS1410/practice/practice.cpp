@@ -1,42 +1,41 @@
 #include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
 
-class Computer {
+class Employee {
 public:
-   void SetComputerStatus(string cpuStatus, string internetStatus) {
-      cpuUsage = cpuStatus;
-      internet = internetStatus;
-   };
+   void SetName(string employeeName) {
+      name = employeeName;
+   }
+
+   virtual void PrintInfo() {
+      cout << name << endl;
+   }
+
+protected:
+   string name;
+};
+
+class Author : public Employee {
+public:
+   void SetGenre(string setGenre) {
+      genre = setGenre;
+   }
 
    void PrintStatus() {
-      cout << "Internet: " << internet << endl;
+      cout << "WiFi: " << wifiQuality << endl;
       cout << "CPU: " << cpuUsage << endl;
    };
 
-protected:
-   string cpuUsage;
-   string internet;
-};
-
-class Laptop : public Computer {
-public:
-   void SetWiFiStatus(string wifiStatus) {
-      wifiQuality = wifiStatus;
-   };
-
-   void PrintStatus() {
-      Computer::PrintStatus();
-      cout << "WiFi: " << wifiQuality << endl;
-   };
-
 private:
-   string wifiQuality;
+   string sport;
 };
 
 int main() {
    Laptop myLaptop;
-
-   myLaptop.SetComputerStatus("15%", "connected");
+// 
+   myLaptop.SetComputerStatus("30%", "connected");
    myLaptop.SetWiFiStatus("bad");
 
    myLaptop.PrintStatus();
