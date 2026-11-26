@@ -25,8 +25,8 @@ public:
    };
 
    void PrintStatus() {
+      Computer::PrintStatus();
       cout << "WiFi: " << wifiQuality << endl;
-      cout << "CPU: " << cpuUsage << endl;
    };
 
 private:
@@ -35,8 +35,8 @@ private:
 
 int main() {
    Laptop myLaptop;
-// 
-   myLaptop.SetComputerStatus("30%", "connected");
+
+   myLaptop.SetComputerStatus("15%", "connected");
    myLaptop.SetWiFiStatus("bad");
 
    myLaptop.PrintStatus();
