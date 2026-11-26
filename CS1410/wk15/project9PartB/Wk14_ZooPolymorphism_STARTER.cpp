@@ -1,9 +1,9 @@
 /*
-Author: xxxx xxxxxxx
-Date: xxx xx, xxxx
+Author: Connor Okey
+Date: 11/25/2026
 Purpose: To show how animals in the UCI Zoo dataset move, by using inheritance,
          virtual functions, an abstract base class and polymorphism
-Time Invested: xxx min
+Time Invested: 1.5 hours
 */
 
 #include <iostream>
@@ -51,6 +51,25 @@ TODO 1: Write class Mammal, derived from Animal (public inheritance)
     Do not print endl inside GetMovement(). main() prints the line break.
   - Do NOT override GetBodyCover(). A Mammal uses the default, which prints "skin".
 */
+class Mammal : public Animal {
+private:
+	bool airborne;
+
+public:
+	Mammal(string n, int l, bool a) : Animal(n, l), airborne(a) { }
+	void Setairborne(bool a) { airborne = a; }
+	bool Getairborne() const { return airborne; }
+
+	void GetMovement() override {
+		if (airborne == true){
+			cout << "flies";
+		} else if (GetLegs() == 0) {
+			cout << "swims";
+		} else {
+			cout << "walks on " << GetLegs() << " legs";
+		}
+	}
+};
 
 
 /*
@@ -60,6 +79,18 @@ TODO 2: Write class Bird, derived from Animal
   - Override GetBodyCover() to print "feathers"
 */
 
+class Bird : public Animal {
+
+public:
+	Bird(string n, int l) : Animal(n, l) { }
+
+	void GetMovement() override {
+			cout << "flies";
+	}
+	void GetBodyCover() override {
+			cout << "feathers";
+	}
+};
 
 /*
 TODO 3: Write class FlightlessBird, derived from Bird (a grandchild of Animal)
@@ -69,6 +100,14 @@ TODO 3: Write class FlightlessBird, derived from Bird (a grandchild of Animal)
   - Do NOT write GetBodyCover(). It is inherited from Bird, so it prints "feathers".
 */
 
+class FlightlessBird : public Bird {
+public:
+	FlightlessBird(string n, int l) : Bird(n, l) { }
+
+	void GetMovement() override {
+		cout << "cannot fly, walks on " << GetLegs() << " legs";
+	}
+};
 
 /*
 TODO 4: Write class Fish, derived from Animal
@@ -77,6 +116,18 @@ TODO 4: Write class Fish, derived from Animal
   - Override GetBodyCover() to print "scales"
 */
 
+class Fish : public Animal {
+
+public:
+	Fish(string n, int l) : Animal(n, l) { }
+
+	void GetMovement() override {
+			cout << "swims using fins";
+	}
+	void GetBodyCover() override {
+			cout << "scales";
+	}
+};
 
 /*
 TODO 5: Finish CreateAnimal. Use a switch on type, like the shape switch in Part A.
@@ -94,6 +145,24 @@ Animal* CreateAnimal(int type, string name, int legs, bool airborne)
 	Animal* a = nullptr;
 
 	// Write your switch here
+	switch (type)
+	{
+	case 1:
+		a = new Mammal(name, legs, airborne);
+		break;
+	case 2:
+		if (airborne == true) {
+			a = new Bird(name, legs);
+		} else {
+			a = new FlightlessBird(name, legs);
+		}
+		break;
+	case 4:
+		a = new Fish(name, legs);
+		break;
+	default:
+		break;
+	}
 
 	return a;
 }
@@ -162,10 +231,16 @@ int main()
 	  3. print endl
 	*/
 
+	for (int i = 0; i < 5; i++){
+		cout << zoo.at(i)->GetName() << ": ";
+		zoo.at(i)->GetMovement();
+		cout << endl;
+	}
 
 	cout << endl << "Type an animal name (example: dolphin): ";
 	string choice;
 	getline(cin, choice);
+
 
 	/*
 	TODO 7: Search the vector for the animal whose name equals choice.
@@ -179,12 +254,31 @@ int main()
 	  the name and ": ", then call GetMovement(), then print ", body cover: ",
 	  then call GetBodyCover(), then print endl.
 	*/
-
+	Animal* found = nullptr;
+	for (int i = 0; i < zoo.size(); i++) {
+		if (zoo.at(i)->GetName() == choice) {
+			found = zoo.at(i);
+			break;
+		}
+	}
+		if (found != nullptr){
+			cout << found->GetName() << ": ";
+			found->GetMovement();
+			cout << ", body cover: ";
+			found->GetBodyCover();
+			cout << endl;
+		} else {
+			cout << "There is no such animal.";
+		} 
+		
 
 	/*
 	TODO 8: Give the memory back. Delete every Animal pointer in the vector,
 	one at a time, using zoo.at(i).
 	*/
+	for (int i = 0; i < zoo.size(); i++){
+		delete zoo.at(i);
+	}
 
 
 	cout << endl;

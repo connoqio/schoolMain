@@ -1,45 +1,76 @@
 #include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
 
-class Computer {
+class Employee {
 public:
-   void SetComputerStatus(string cpuStatus, string internetStatus) {
-      cpuUsage = cpuStatus;
-      internet = internetStatus;
-   };
+   void SetName(string employeeName) {
+      name = employeeName;
+   }
 
-   void PrintStatus() {
-      cout << "Internet: " << internet << endl;
-      cout << "CPU: " << cpuUsage << endl;
-   };
+   virtual void PrintInfo() {
+      cout << name << endl;
+   }
 
 protected:
-   string cpuUsage;
-   string internet;
+   string name;
 };
 
-class Laptop : public Computer {
+class Author : public Employee {
 public:
-   void SetWiFiStatus(string wifiStatus) {
-      wifiQuality = wifiStatus;
-   };
+   void SetGenre(string setGenre) {
+      genre = setGenre;
+   }
 
-   void PrintStatus() {
-      cout << "WiFi: " << wifiQuality << endl;
-      cout << "CPU: " << cpuUsage << endl;
-   };
+   void PrintInfo() {
+      cout << name << " writes " << genre << endl;
+   }
 
 private:
-   string wifiQuality;
+   string genre;
+};
+
+class Coach : public Employee {
+public:
+   void SetSport(string setSport) {
+      sport = setSport;
+   }
+
+   void PrintInfo() {
+      cout << name << " coaches " << sport << endl;
+   }
+
+private:
+   string sport;
 };
 
 int main() {
-   Laptop myLaptop;
-// 
-   myLaptop.SetComputerStatus("30%", "connected");
-   myLaptop.SetWiFiStatus("bad");
+   Employee* person1;
+   Author* person2;
+   Coach* person3;
 
-   myLaptop.PrintStatus();
+   vector<Employee*> personList;
+   unsigned int i;
 
+   person1 = new Employee();
+   person1->SetName("Aja");
+
+   person2 = new Author();
+   person2->SetName("Joe");
+   person2->SetGenre("mysteries");
+
+   person3 = new Coach();
+   person3->SetName("Amy");
+   person3->SetSport("hockey");
+
+   personList.push_back(person1);
+   personList.push_back(person3);
+   personList.push_back(person2);
+
+   for (i = 0; i < personList.size(); ++i) {
+      personList.at(i)->PrintInfo();
+   }
+   
    return 0;
 }
